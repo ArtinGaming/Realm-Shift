@@ -113,6 +113,7 @@ func _on_Color_Change_Timer_timeout():
 	
 func Fell():
 	if position.y > 450:
+		Global.energy_bar_value -= 10
 		$Sound/Hit.play()
 		Saver.load_data()
 		get_tree().reload_current_scene()

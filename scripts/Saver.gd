@@ -13,7 +13,7 @@ static func save_data(stage):
 	}
 	Global.set_data(stage)
 	var file = File.new()
-	file.open("user://save_data.dat", File.READ)
+	file.open("user://save_data.dat", File.WRITE)
 	file.store_line(to_json(save_content))
 	file.close()
 	
