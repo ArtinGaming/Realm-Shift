@@ -3,7 +3,12 @@ extends Control
 var master_sound = AudioServer.get_bus_index("Master")
 
 func _on_Play_pressed():
-	get_tree().change_scene("res://scenes/Want Tutorial.tscn")
+	if Global.no_tutorial == true:
+		Saver.load_data()
+		get_tree().change_scene("res://scenes/Level 0" + str(Global.stage) +".tscn")
+		
+	else:
+		get_tree().change_scene("res://scenes/Want Tutorial.tscn")
 
 func _on_Quit_pressed():
 	get_tree().quit()

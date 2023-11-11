@@ -7,11 +7,12 @@ static func check_file():
 	else:
 		return false
 
-static func save_data(stage):
+static func save_data(stage, no_tutorial):
 	var save_content = {
-		"stage":stage
+		"stage":stage,
+		"no_tutorial": no_tutorial
 	}
-	Global.set_data(stage)
+	Global.set_data(stage, no_tutorial)
 	var file = File.new()
 	file.open("user://save_data.dat", File.WRITE)
 	file.store_line(to_json(save_content))
@@ -25,7 +26,9 @@ static func load_data():
 		for i in content.keys():
 			if i == "stage":
 				Global.stage = content.get(i)
+			elif i == "want_tutorial":
+				Global.no_tutorial = content.get(i)
 		file.close()
 		return content
 	else:
-		save_data(1)
+		save_data(1, null)

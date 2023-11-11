@@ -6,6 +6,7 @@ var velocity = Vector2(0,0)
 var switch_realms = false
 
 var being_hurt = false
+
 # Const
 const GRAVITY = 30
 
@@ -17,10 +18,10 @@ export var JUMPFORCE = -550
 export var bar_increase = 0.1
 
 func _ready():
-	
 	$HUD/Realm_Bar.value = Global.energy_bar_value
+		
 func _save():
-	Saver.save_data(Global.stage)
+	Saver.save_data(Global.stage, Global.no_tutorial)
 	
 func _physics_process(delta):
 	Player_Input()
@@ -86,6 +87,13 @@ func Health():
 func bounce():
 	velocity.y = JUMPFORCE * 0.75
 
+func on_fan(jump_force):
+	velocity.y = JUMPFORCE * jump_force
+
+func spring_jump(jump_force):
+	velocity.y = JUMPFORCE * jump_force
+	$"Camera2D/Screen Shake".start(0.1, 7.5, 8, 0)
+	
 func hurt(var enemy_pos_x):
 	being_hurt = true
 	$"Camera2D/Screen Shake".start()
@@ -130,7 +138,7 @@ func LevelIntroText():
 	
 func _on_Player_tree_entered():
 	$Level_Intro.show()
-	Saver.save_data(Global.stage)
-	
+	Saver.save_data(Global.stage, Global.no_tutorial)
+
 func _on_AnimationPlayer_animation_finished(anim_name):
 	$Level_Intro.hide()

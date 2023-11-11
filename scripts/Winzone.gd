@@ -23,6 +23,7 @@ func open_without_key():
 		
 func teleport():
 	if teleport_player == true:
+		Global.energy_bar_value = 100
 		Global.musicProgress = $"../Music_BG".get_playback_position()   
 		get_tree().change_scene_to(next_level)
 		

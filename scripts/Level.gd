@@ -11,4 +11,4 @@ func _ready():
 	$Player.Level_Timer(time_limit) 
 	$Music_BG.play(Global.musicProgress)
 	Global.stage = level_number
-	
+
