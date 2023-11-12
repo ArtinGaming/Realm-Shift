@@ -73,7 +73,7 @@ func Realms_switch():
 		Global.energy_bar_value -= bar_increase
 		set_modulate(Color(1, 1, 1, 0.290196))
 		
-	elif switch_realms == false and being_hurt == false:
+	elif switch_realms == false and being_hurt == false and not is_on_wall():
 		set_collision_layer_bit(0, true)
 		set_collision_mask_bit(0, true)
 		set_collision_layer_bit(1, false)
