@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Tilesets/World.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/Tilesets/Decoration.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Ground Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Winzone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Music/machiavellian-nightmare-electronic-dystopia-ai-robot-machine-139385.mp3" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.5, 104.25 )
+
+[node name="Level 01" type="Node2D"]
+script = ExtResource( 4 )
+time_limit = 60
+level_number = 2
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -367.0
+margin_top = -555.0
+margin_right = 2543.0
+margin_bottom = 686.0
+color = Color( 0.133333, 0.137255, 0.137255, 1 )
+
+[node name="World_Bordors" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_Bordors"]
+position = Vector2( -9, 107.25 )
+shape = SubResource( 1 )
+
+[node name="Winzone" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1479, 137 )
+next_level = "res://scenes/Level 02.tscn"
+
+[node name="Decoration_Tiles" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65470, 5, 0, 30, 5, 0, 66, 5, 0, 65566, 5, 0, 65602, 5, 0, 131102, 5, 0, 131138, 5, 0, 196638, 5, 0, 196674, 5, 0, 262174, 5, 0, 262185, 19, 0, 262210, 5, 0, 327710, 5, 0, 327721, 20, 0, 327746, 5, 0, 393246, 5, 0, 393257, 20, 0, 393282, 5, 0, 458782, 5, 0, 458793, 20, 0, 458818, 5, 0, 458838, 15, 0, 524318, 5, 0, 524329, 20, 0, 524354, 5, 0, 524367, 22, 0, 524374, 16, 0, 589854, 5, 0, 589862, 0, 0, 589865, 20, 0, 589887, 2, 0, 589890, 5, 0, 589903, 16, 0, 655390, 5, 0, 655393, 2, 0, 655398, 1, 0, 655400, 17, 0, 655401, 20, 0, 655403, 13, 0, 655419, 14, 0, 655423, 4, 0, 655424, 13, 0, 655426, 5, 0, 720898, 22, 0, 720907, 2, 0, 720925, 17, 0, 720926, 7, 0, 720927, 9, 0, 720929, 4, 0, 720948, 13, 0, 720951, 17, 0, 720962, 7, 0, 720964, -1610612731, 0, 720965, -1610612731, 0, 720966, -1610612731, 0, 720967, -1610612731, 0, 720968, -1610612731, 0, 720969, -1610612731, 0, 720970, -1610612730, 0, 786434, 23, 0, 786443, 4, 0, 786447, 14, 0, 786455, 17, 0, 786506, 5, 0, 852042, 5, 0, 917578, 5, 0, 983114, 5, 0, 1048650, 5, 0, 1114186, 5, 0, 1179715, -1610612729, 0, 1179716, -1610612731, 0, 1179717, -1610612731, 0, 1179718, -1610612731, 0, 1179719, -1610612731, 0, 1179720, -1610612731, 0, 1179721, -1610612731, 0, 1179722, 10, 0, 1245251, 5, 0, 1310787, 5, 0, 1376323, 5, 0, 1441859, 5, 0, 1507395, 5, 0, 1572931, 5, 0, 1638467, 5, 0, 1704003, 5, 0, 1769539, 5, 0, 1835075, 5, 0, 1900611, 5, 0, 1966147, 5, 0, 2031683, 5, 0, 2097219, 5, 0, 2162755, 5, 0, 2228291, 5, 0, 2293827, 5, 0, 2359363, 5, 0, 2424899, 5, 0, 2490435, 5, 0, 2555971, 5, 0, 2621507, 5, 0, 2687043, 5, 0, 2752579, 5, 0 )
+
+[node name="World_Tiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 589909, 12, 0, 589910, 13, 0, 589911, 13, 0, 589912, 13, 0, 589913, 13, 0, 589914, 13, 0, 589915, 13, 0, 589916, 13, 0, 589917, 14, 0, 655437, 12, 0, 655438, 13, 0, 655439, 13, 0, 655440, 13, 0, 655441, 14, 0, 720934, 12, 0, 720935, 13, 0, 720936, 13, 0, 720937, 13, 0, 720938, 13, 0, 720939, 13, 0, 720940, 14, 0, 720955, 11, 0, 720958, 12, 0, 720959, 13, 0, 720960, 13, 0, 720961, 14, 0, 720963, 11, 0, 786460, 12, 0, 786461, 13, 0, 786462, 13, 0, 786463, 13, 0, 786464, 13, 0, 786465, 536870924, 0, 786482, 0, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 786487, 1, 0, 786488, 3, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 3, 0, 851983, 11, 0, 851987, 11, 0, 851990, 12, 0, 851991, 13, 0, 851992, 14, 0, 852018, 4, 0, 852019, -1073741817, 0, 852024, 5, 0, 917504, 4, 0, 917510, -536870905, 0, 917516, 5, 0, 917554, 4, 0, 917558, 7, 0, 917560, 5, 0, 983040, 4, 0, 983042, -1610612729, 0, 983052, 5, 0, 983090, 8, 0, 983091, 9, 0, 983092, 9, 0, 983093, 9, 0, 983094, 9, 0, 983095, 9, 0, 983096, 10, 0, 1048576, 4, 0, 1048586, 7, 0, 1048588, 5, 0, 1114112, 8, 0, 1114113, 9, 0, 1114114, 9, 0, 1114115, 9, 0, 1114116, 9, 0, 1114117, 9, 0, 1114118, 9, 0, 1114119, 9, 0, 1114120, 9, 0, 1114121, 9, 0, 1114122, 9, 0, 1114123, 9, 0, 1114124, 10, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 70, 180 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Ground Enemy" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 377, 193 )
+
+[node name="Ground Enemy2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 635, 148 )
+
+[node name="Ground Enemy3" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 695, 149 )
+
+[node name="Ground Enemy4" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 856, 179 )
+
+[node name="Ground Enemy5" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1273, 151 )
+
+[node name="Music_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )

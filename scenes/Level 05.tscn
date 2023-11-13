@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/Music/machiavellian-nightmare-electronic-dystopia-ai-robot-machine-139385.mp3" type="AudioStream" id=2]
+[ext_resource path="res://assets/Tilesets/World.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Tilesets/Decoration.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/Fan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Flying Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Spring.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Ground Enemy.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Winzone.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.5, 104.25 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[node name="Level 05" type="Node2D"]
+script = ExtResource( 1 )
+time_limit = 20
+level_number = 6
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -326.0
+margin_top = -548.0
+margin_right = 2584.0
+margin_bottom = 693.0
+color = Color( 0.133333, 0.137255, 0.137255, 1 )
+
+[node name="World_Bordors" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_Bordors"]
+position = Vector2( -9, 107.25 )
+shape = SubResource( 2 )
+
+[node name="Winzone" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1271, 201 )
+next_level = "res://scenes/Level 06.tscn"
+
+[node name="World" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 786447, 12, 0, 786448, 13, 0, 786449, 13, 0, 786450, 14, 0, 786454, 11, 0, 786460, 12, 0, 786461, 13, 0, 786462, 14, 0, 786477, 11, 0, 786485, 12, 0, 786486, 13, 0, 786487, 14, 0, 786491, 11, 0, 786494, 11, 0, 786497, 11, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 3, 0, 852003, 0, 0, 852004, 1, 0, 852005, 1, 0, 852006, 1, 0, 852007, 1, 0, 852008, 3, 0, 852039, 0, 0, 852040, 1, 0, 852041, 1, 0, 852042, 1, 0, 852043, 1, 0, 852044, 1, 0, 852045, 1, 0, 852046, 1, 0, 852047, 3, 0, 917504, 4, 0, 917511, -2147483641, 0, 917514, 5, 0, 917539, 4, 0, 917540, 1073741831, 0, 917544, 5, 0, 917575, 4, 0, 917577, 1073741831, 0, 917583, 5, 0, 983040, 4, 0, 983044, 7, 0, 983050, 5, 0, 983075, 4, 0, 983080, 5, 0, 983111, 4, 0, 983119, 5, 0, 1048576, 4, 0, 1048577, 536870919, 0, 1048585, 7, 0, 1048586, 5, 0, 1048611, 4, 0, 1048614, 7, 0, 1048616, 5, 0, 1048647, 4, 0, 1048653, 7, 0, 1048655, 5, 0, 1114112, 8, 0, 1114113, 9, 0, 1114114, 9, 0, 1114115, 9, 0, 1114116, 9, 0, 1114117, 9, 0, 1114118, 9, 0, 1114119, 9, 0, 1114120, 9, 0, 1114121, 9, 0, 1114122, 10, 0, 1114147, 8, 0, 1114148, 9, 0, 1114149, 9, 0, 1114150, 9, 0, 1114151, 9, 0, 1114152, 10, 0, 1114183, 8, 0, 1114184, 9, 0, 1114185, 9, 0, 1114186, 9, 0, 1114187, 9, 0, 1114188, 9, 0, 1114189, 9, 0, 1114190, 9, 0, 1114191, 10, 0 )
+
+[node name="Decoration" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131107, 1073741832, 0, 131108, 1073741832, 0, 131109, 1073741832, 0, 131110, 1073741832, 0, 131111, 1073741832, 0, 131112, 1073741832, 0, 196643, 1073741832, 0, 196644, 1073741832, 0, 196645, 1073741832, 0, 196646, 1073741832, 0, 196647, 1073741832, 0, 196648, 1073741832, 0, 262179, 1073741832, 0, 262180, 1073741832, 0, 262181, 1073741832, 0, 262182, 1073741832, 0, 262183, 1073741832, 0, 262184, 1073741832, 0, 327715, 1073741832, 0, 327716, 1073741832, 0, 327717, 1073741832, 0, 327718, 1073741832, 0, 327719, 1073741832, 0, 327720, 1073741832, 0, 393256, 1073741844, 0, 458792, 1073741844, 0, 524328, 1073741844, 0, 589864, 1073741844, 0, 655400, 1073741844, 0, 720898, 22, 0, 720925, 14, 0, 720936, 1073741844, 0, 720949, 17, 0, 720950, 17, 0, 720968, 15, 0, 786434, 23, 0, 786436, 13, 0, 786439, 14, 0, 786442, 17, 0, 786467, 17, 0, 786470, 13, 0, 786472, 21, 0, 786504, 16, 0 )
+
+[node name="Tutorial" type="Label" parent="."]
+margin_left = 219.0
+margin_top = 128.0
+margin_right = 334.0
+margin_bottom = 151.0
+custom_fonts/font = SubResource( 1 )
+text = "Spikes will only hurt in the physical realm! "
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 70, 180 )
+bar_increase = 0.21
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike2" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 253, 184 )
+
+[node name="Spike3" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 271, 184 )
+
+[node name="Spike4" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 289, 184 )
+
+[node name="Spike5" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 952, 185 )
+
+[node name="Spike6" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 1000, 185 )
+
+[node name="Spike7" parent="Spikes" instance=ExtResource( 6 )]
+position = Vector2( 1048, 185 )
+
+[node name="Fans" type="Node2D" parent="."]
+
+[node name="Fan" parent="Fans" instance=ExtResource( 8 )]
+position = Vector2( 360, 185 )
+jump_force = 1.5
+
+[node name="Ground Enemys" type="Node2D" parent="."]
+
+[node name="Ground Enemy" parent="Ground Enemys" instance=ExtResource( 11 )]
+position = Vector2( 860, 185 )
+
+[node name="Ground Enemy2" parent="Ground Enemys" instance=ExtResource( 11 )]
+position = Vector2( 881, 185 )
+
+[node name="Flying Enemys" type="Node2D" parent="."]
+
+[node name="Flying Enemy" parent="Flying Enemys" instance=ExtResource( 9 )]
+position = Vector2( 580, 160 )
+speed = 25
+
+[node name="Flying Enemy2" parent="Flying Enemys" instance=ExtResource( 9 )]
+position = Vector2( 622, 161 )
+direction = 1
+speed = 25
+
+[node name="Spring" type="Node2D" parent="."]
+
+[node name="Spring" parent="Spring" instance=ExtResource( 10 )]
+position = Vector2( 729, 186 )
+jump_force = 1.6
+
+[node name="Music_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

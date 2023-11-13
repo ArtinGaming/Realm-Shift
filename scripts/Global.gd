@@ -10,6 +10,8 @@ var no_tutorial = null
 
 var is_fullscreen = false
 
+var speedrun = false
+
 func set_data(st, nt):
 	stage = st
 	no_tutorial = nt

@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://assets/Music/machiavellian-nightmare-electronic-dystopia-ai-robot-machine-139385.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Tilesets/World.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/Spring.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Ground Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Fan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Flying Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/Tilesets/Decoration.tres" type="TileSet" id=9]
+[ext_resource path="res://scenes/Winzone.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.5, 104.25 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[node name="Level 04" type="Node2D"]
+script = ExtResource( 1 )
+time_limit = 30
+level_number = 5
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -320.0
+margin_top = -559.0
+margin_right = 2590.0
+margin_bottom = 682.0
+color = Color( 0.133333, 0.137255, 0.137255, 1 )
+
+[node name="World_Bordors" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_Bordors"]
+position = Vector2( -9, 107.25 )
+shape = SubResource( 1 )
+
+[node name="Winzone" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1480, 201 )
+next_level = "res://scenes/Level 05.tscn"
+
+[node name="World" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 327741, 21, 0, 327742, 22, 0, 327743, 22, 0, 327744, 22, 0, 327745, 22, 0, 327746, 23, 0, 393277, 28, 0, 393279, 1610612743, 0, 393282, 24, 0, 458813, 28, 0, 458818, 24, 0, 524349, 28, 0, 524350, -1073741817, 0, 524353, 7, 0, 524354, 24, 0, 589885, 29, 0, 589886, 1610612758, 0, 589887, 1610612758, 0, 589888, 1610612758, 0, 589889, 1610612758, 0, 589890, 25, 0, 786505, 12, 0, 786506, 13, 0, 786507, 13, 0, 786508, 13, 0, 786509, 14, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 3, 0, 851979, 11, 0, 851987, 12, 0, 851988, 13, 0, 851989, 13, 0, 851990, 14, 0, 851996, 11, 0, 852005, 12, 0, 852006, 13, 0, 852007, 14, 0, 852012, 0, 0, 852013, 1, 0, 852014, 1, 0, 852015, 1, 0, 852016, 1, 0, 852017, 1, 0, 852018, 3, 0, 852028, 0, 0, 852029, 1, 0, 852030, 1, 0, 852031, 1, 0, 852032, 1, 0, 852033, 1, 0, 852034, 3, 0, 852036, 11, 0, 852051, 0, 0, 852052, 1, 0, 852053, 1, 0, 852054, 1, 0, 852055, 1, 0, 852056, 1, 0, 852057, 1, 0, 852058, 1, 0, 852059, 1, 0, 852060, 3, 0, 917504, 4, 0, 917505, 1073741831, 0, 917511, 5, 0, 917548, 4, 0, 917549, 1073741831, 0, 917554, 5, 0, 917557, 11, 0, 917564, 4, 0, 917565, 1073741831, 0, 917570, 5, 0, 917587, 4, 0, 917592, 1610612743, 0, 917596, 5, 0, 983040, 4, 0, 983047, 5, 0, 983084, 4, 0, 983089, -1610612729, 0, 983090, 5, 0, 983100, 4, 0, 983106, 5, 0, 983123, 4, 0, 983124, 1073741831, 0, 983132, 5, 0, 1048576, 4, 0, 1048581, 7, 0, 1048583, 5, 0, 1048620, 4, 0, 1048623, 7, 0, 1048626, 5, 0, 1048636, 4, 0, 1048641, 7, 0, 1048642, 5, 0, 1048659, 4, 0, 1048662, -1610612729, 0, 1048667, 7, 0, 1048668, 5, 0, 1114112, 8, 0, 1114113, 9, 0, 1114114, 9, 0, 1114115, 9, 0, 1114116, 9, 0, 1114117, 9, 0, 1114118, 9, 0, 1114119, 10, 0, 1114156, 8, 0, 1114157, 9, 0, 1114158, 9, 0, 1114159, 9, 0, 1114160, 9, 0, 1114161, 9, 0, 1114162, 10, 0, 1114172, 8, 0, 1114173, 9, 0, 1114174, 9, 0, 1114175, 9, 0, 1114176, 9, 0, 1114177, 9, 0, 1114178, 10, 0, 1114195, 8, 0, 1114196, 9, 0, 1114197, 9, 0, 1114198, 9, 0, 1114199, 9, 0, 1114200, 9, 0, 1114201, 9, 0, 1114202, 9, 0, 1114203, 9, 0, 1114204, 10, 0 )
+
+[node name="Decoration" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -327605, 19, 0, -262069, 20, 0, -196533, 20, 0, -130997, 20, 0, -65461, 20, 0, 75, 20, 0, 65611, 20, 0, 131147, 20, 0, 196683, 20, 0, 262219, 20, 0, 327755, 20, 0, 393291, 20, 0, 458827, 20, 0, 524363, 20, 0, 589899, 20, 0, 655435, 20, 0, 720898, 22, 0, 720903, 2, 0, 720917, 22, 0, 720956, 0, 0, 720969, 14, 0, 720971, 20, 0, 720972, 17, 0, 720980, 15, 0, 786434, 23, 0, 786439, 4, 0, 786453, 16, 0, 786470, 14, 0, 786477, 17, 0, 786481, 13, 0, 786492, 1, 0, 786495, 13, 0, 786516, 16, 0, 786520, 13, 0 )
+
+[node name="Tutorial" type="Label" parent="."]
+margin_left = 108.0
+margin_top = 151.0
+margin_right = 271.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "Jump on a spring to go high in the air, but you can only use it once!"
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 70, 180 )
+bar_increase = 0.19
+
+[node name="Springs" type="Node2D" parent="."]
+
+[node name="Spring" parent="Springs" instance=ExtResource( 5 )]
+position = Vector2( 184, 202 )
+jump_force = 1.6
+
+[node name="Spring2" parent="Springs" instance=ExtResource( 5 )]
+position = Vector2( 456, 202 )
+jump_force = 1.8
+
+[node name="Spring3" parent="Springs" instance=ExtResource( 5 )]
+position = Vector2( 1096, 202 )
+jump_force = 1.8
+
+[node name="Ground Enemy" type="Node2D" parent="."]
+
+[node name="Ground Enemy" parent="Ground Enemy" instance=ExtResource( 6 )]
+position = Vector2( 328, 197 )
+
+[node name="Ground Enemy2" parent="Ground Enemy" instance=ExtResource( 6 )]
+position = Vector2( 715, 195 )
+
+[node name="Ground Enemy3" parent="Ground Enemy" instance=ExtResource( 6 )]
+position = Vector2( 802, 197 )
+
+[node name="Flying Enemy" type="Node2D" parent="."]
+
+[node name="Flying Enemy" parent="Flying Enemy" instance=ExtResource( 8 )]
+position = Vector2( 995, 192 )
+
+[node name="Flying Enemy2" parent="Flying Enemy" instance=ExtResource( 8 )]
+position = Vector2( 1051, 194 )
+
+[node name="Fans" type="Node2D" parent="."]
+
+[node name="Fan" parent="Fans" instance=ExtResource( 7 )]
+position = Vector2( 856, 217 )
+jump_force = 1.3
+
+[node name="Music_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

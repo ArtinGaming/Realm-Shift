@@ -1,0 +1,155 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Music/machiavellian-nightmare-electronic-dystopia-ai-robot-machine-139385.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=2]
+[ext_resource path="res://scenes/Spring.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Tilesets/World.tres" type="TileSet" id=5]
+[ext_resource path="res://scenes/Fan.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Flying Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Ground Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Spike.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Tilesets/Decoration.tres" type="TileSet" id=10]
+[ext_resource path="res://scenes/Winzone.tscn" type="PackedScene" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.5, 104.25 )
+
+[node name="Level 06" type="Node2D"]
+script = ExtResource( 2 )
+time_limit = 50
+level_number = 7
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -164.0
+margin_top = -549.0
+margin_right = 3034.0
+margin_bottom = 692.0
+color = Color( 0.133333, 0.137255, 0.137255, 1 )
+
+[node name="World_Bordors" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_Bordors"]
+position = Vector2( -9, 107.25 )
+shape = SubResource( 1 )
+
+[node name="Winzone" parent="." instance=ExtResource( 11 )]
+position = Vector2( 2546, 201 )
+next_level = "res://scenes/Victory.tscn"
+
+[node name="World" type="TileMap" parent="."]
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 262246, 21, 0, 262247, 22, 0, 262248, 22, 0, 262249, 22, 0, 262250, 22, 0, 262251, 22, 0, 262252, 23, 0, 327729, 25, 0, 327730, 22, 0, 327731, 22, 0, 327732, 22, 0, 327733, 22, 0, 327734, 22, 0, 327735, 22, 0, 327736, 29, 0, 327782, 28, 0, 327784, 1073741831, 0, 327788, 24, 0, 393265, 28, 0, 393266, 1073741831, 0, 393272, 24, 0, 393318, 28, 0, 393324, 24, 0, 458801, 28, 0, 458805, 7, 0, 458808, 24, 0, 458854, 28, 0, 458858, 7, 0, 458860, 24, 0, 524337, 28, 0, 524344, 24, 0, 524390, 28, 0, 524396, 24, 0, 589873, 29, 0, 589874, 27, 0, 589875, 27, 0, 589876, 27, 0, 589877, 27, 0, 589878, 27, 0, 589879, 27, 0, 589880, 25, 0, 589926, 29, 0, 589927, 27, 0, 589928, 27, 0, 589929, 21, 0, 589930, 29, 0, 589931, 27, 0, 589932, 25, 0, 655504, 12, 0, 655505, 14, 0, 720915, 12, 0, 720916, 13, 0, 720917, 14, 0, 720921, 11, 0, 720927, 11, 0, 720932, 12, 0, 720933, 13, 0, 720934, 13, 0, 720935, 14, 0, 720939, 11, 0, 720991, 12, 0, 720992, 13, 0, 720993, 13, 0, 720994, 14, 0, 721033, 11, 0, 786502, 11, 0, 786521, 11, 0, 786557, 12, 0, 786558, 13, 0, 786559, 13, 0, 786560, 13, 0, 786561, 13, 0, 786562, 13, 0, 786563, 13, 0, 786564, 13, 0, 786565, 14, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 3, 0, 851980, 11, 0, 852017, 0, 0, 852018, 1, 0, 852019, 1, 0, 852020, 1, 0, 852021, 1, 0, 852022, 1, 0, 852023, 1, 0, 852024, 1, 0, 852025, 3, 0, 852030, 12, 0, 852031, 13, 0, 852032, 13, 0, 852033, 14, 0, 852047, 0, 0, 852048, 1, 0, 852049, 1, 0, 852050, 1, 0, 852051, 1, 0, 852052, 1, 0, 852053, 3, 0, 852069, 0, 0, 852070, 1, 0, 852071, 1, 0, 852072, 1, 0, 852073, 1, 0, 852074, 1, 0, 852075, 1, 0, 852076, 3, 0, 852081, 11, 0, 852088, 12, 0, 852089, 14, 0, 852118, 0, 0, 852119, 1, 0, 852120, 1, 0, 852121, 1, 0, 852122, 1, 0, 852123, 1, 0, 852124, 1, 0, 852125, 1, 0, 852126, 1, 0, 852127, 3, 0, 917504, 4, 0, 917505, 1073741831, 0, 917512, 5, 0, 917553, 4, 0, 917561, 5, 0, 917583, 4, 0, 917584, 1073741831, 0, 917589, 5, 0, 917605, 4, 0, 917607, 1073741831, 0, 917612, 5, 0, 917654, 4, 0, 917656, 1073741831, 0, 917662, -2147483641, 0, 917663, 5, 0, 983040, 4, 0, 983048, 5, 0, 983089, 4, 0, 983090, 7, 0, 983097, 5, 0, 983119, 4, 0, 983125, 5, 0, 983141, 4, 0, 983148, 5, 0, 983190, 4, 0, 983199, 5, 0, 1048576, 4, 0, 1048582, 7, 0, 1048584, 5, 0, 1048625, 4, 0, 1048631, 7, 0, 1048633, 5, 0, 1048655, 4, 0, 1048660, 7, 0, 1048661, 5, 0, 1048677, 4, 0, 1048683, 7, 0, 1048684, 5, 0, 1048726, 4, 0, 1048731, -1610612729, 0, 1048735, 5, 0, 1114112, 8, 0, 1114113, 9, 0, 1114114, 9, 0, 1114115, 9, 0, 1114116, 9, 0, 1114117, 9, 0, 1114118, 9, 0, 1114119, 9, 0, 1114120, 10, 0, 1114161, 8, 0, 1114162, 9, 0, 1114163, 9, 0, 1114164, 9, 0, 1114165, 9, 0, 1114166, 9, 0, 1114167, 9, 0, 1114168, 9, 0, 1114169, 10, 0, 1114191, 8, 0, 1114192, 9, 0, 1114193, 9, 0, 1114194, 9, 0, 1114195, 9, 0, 1114196, 9, 0, 1114197, 10, 0, 1114213, 8, 0, 1114214, 9, 0, 1114215, 9, 0, 1114216, 9, 0, 1114217, 9, 0, 1114218, 9, 0, 1114219, 9, 0, 1114220, 10, 0, 1114262, 8, 0, 1114263, 9, 0, 1114264, 9, 0, 1114265, 9, 0, 1114266, 9, 0, 1114267, 9, 0, 1114268, 9, 0, 1114269, 9, 0, 1114270, 9, 0, 1114271, 10, 0 )
+
+[node name="Decoration" type="TileMap" parent="."]
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -327594, 5, 0, -262058, 5, 0, -196522, 5, 0, -130986, 5, 0, -65450, 5, 0, 86, 5, 0, 65622, 5, 0, 131158, 5, 0, 196691, 1073741831, 0, 196692, -2147483643, 0, 196693, -2147483643, 0, 196694, 10, 0, 262227, 1073741829, 0, 327762, 1073741831, 0, 327763, 1073741833, 0, 393298, 1073741829, 0, 458834, 1073741829, 0, 524370, 1073741829, 0, 589906, 1073741829, 0, 589968, 13, 0, 655380, 17, 0, 655391, 13, 0, 655398, 13, 0, 655403, 14, 0, 655442, 1073741829, 0, 655456, 14, 0, 720898, 22, 0, 720904, 2, 0, 720945, 0, 0, 720978, 1073741829, 0, 721022, 17, 0, 721025, 14, 0, 721027, 13, 0, 721047, 15, 0, 786434, 16, 0, 786440, 4, 0, 786481, 1, 0, 786483, 17, 0, 786487, 17, 0, 786512, 17, 0, 786514, 1073741829, 0, 786534, 13, 0, 786538, 17, 0, 786583, 16, 0, 786587, 14, 0, 1179730, 1073741829, 0, 1245266, 1073741829, 0, 1310802, 1073741829, 0, 1376338, 5, 0, 1441874, 7, 0, 1441875, -1610612731, 0, 1441876, 9, 0, 1507410, 6, 0, 1507411, -1610612731, 0, 1507412, 10, 0, 1572946, 5, 0, 1638482, 5, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 70, 180 )
+bar_increase = 0.22
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1002, 201 )
+
+[node name="Spike2" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1017, 201 )
+
+[node name="Spike3" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1032, 201 )
+
+[node name="Spike4" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1047, 201 )
+
+[node name="Spike5" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1335, 200 )
+
+[node name="Spike6" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1351, 200 )
+
+[node name="Spike7" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1367, 200 )
+
+[node name="Spike8" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1928, 201 )
+
+[node name="Spike9" parent="Spikes" instance=ExtResource( 9 )]
+position = Vector2( 1944, 201 )
+
+[node name="Springs" type="Node2D" parent="."]
+
+[node name="Spring" parent="Springs" instance=ExtResource( 3 )]
+position = Vector2( 200, 202 )
+
+[node name="Spring2" parent="Springs" instance=ExtResource( 3 )]
+position = Vector2( 1129, 186 )
+
+[node name="Spring3" parent="Springs" instance=ExtResource( 3 )]
+position = Vector2( 1817, 202 )
+jump_force = 1.6
+
+[node name="Fans" type="Node2D" parent="."]
+
+[node name="Fan" parent="Fans" instance=ExtResource( 6 )]
+position = Vector2( 408, 169 )
+
+[node name="Fan2" parent="Fans" instance=ExtResource( 6 )]
+position = Vector2( 1432, 185 )
+jump_force = 1.3
+
+[node name="Fan3" parent="Fans" instance=ExtResource( 6 )]
+position = Vector2( 2200, 169 )
+jump_force = 1.3
+
+[node name="Griound Enemies" type="Node2D" parent="."]
+
+[node name="Ground Enemy" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 630, 169 )
+
+[node name="Ground Enemy2" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 586, 170 )
+
+[node name="Ground Enemy3" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 1553, 168 )
+
+[node name="Ground Enemy4" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2022, 169 )
+
+[node name="Ground Enemy5" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2072, 170 )
+direction = 1
+
+[node name="Ground Enemy6" parent="Griound Enemies" instance=ExtResource( 8 )]
+position = Vector2( 2122, 171 )
+
+[node name="Flying Enemies" type="Node2D" parent="."]
+
+[node name="Flying Enemy" parent="Flying Enemies" instance=ExtResource( 7 )]
+position = Vector2( 805, 183 )
+
+[node name="Flying Enemy2" parent="Flying Enemies" instance=ExtResource( 7 )]
+position = Vector2( 845, 183 )
+direction = 1
+
+[node name="Flying Enemy3" parent="Flying Enemies" instance=ExtResource( 7 )]
+position = Vector2( 890, 183 )
+
+[node name="Flying Enemy4" parent="Flying Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1655, 180 )
+direction = 1
+
+[node name="Flying Enemy5" parent="Flying Enemies" instance=ExtResource( 7 )]
+position = Vector2( 1721, 182 )
+
+[node name="Music_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )

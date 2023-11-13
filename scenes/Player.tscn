@@ -1,0 +1,212 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/Tilemaps/monochrome_tilemap_transparent.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/Screen Shake.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Sound Effects/Hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Sound Effects/Jump.wav" type="AudioStream" id=6]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 102, 255, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 255, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 17, 255, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 68, 255, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 34, 255, 17, 17 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 51, 255, 17, 17 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 5.25, 6 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.486275, 0.239216, 0.580392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.427451, 0.235294, 0.498039, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.286275, 0.207843, 0.317647, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.243137, 0.188235, 0.266667, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "Level Intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Level_Name:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Level_Name:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 514, 297 )
+script = ExtResource( 1 )
+SPEED = 160
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.2, 1.2 )
+frames = SubResource( 2 )
+animation = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.25, 3 )
+shape = SubResource( 11 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.35, 0.35 )
+process_mode = 0
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="Screen Shake" parent="Camera2D" instance=ExtResource( 4 )]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Realm_Bar" type="ProgressBar" parent="HUD"]
+margin_left = 9.0
+margin_top = 7.0
+margin_right = 174.0
+margin_bottom = 28.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+value = 100.0
+percent_visible = false
+
+[node name="Color_Change_Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Level_Timer" type="CanvasLayer" parent="."]
+
+[node name="Timer_Text" type="Label" parent="Level_Timer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -63.0
+margin_top = -1.0
+margin_right = 9.0
+margin_bottom = 39.0
+custom_fonts/font = SubResource( 12 )
+text = "###"
+
+[node name="Timer" type="Timer" parent="Level_Timer"]
+process_mode = 0
+one_shot = true
+autostart = true
+
+[node name="Level_Intro" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Level_Name" type="Label" parent="Level_Intro"]
+margin_right = 1027.0
+margin_bottom = 597.0
+custom_fonts/font = SubResource( 13 )
+text = "Level 01"
+align = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level_Intro"]
+autoplay = "Level Intro"
+"anims/Level Intro" = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[node name="Sound" type="Node2D" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 5 )
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource( 6 )
+volume_db = -8.0
+
+[connection signal="tree_entered" from="." to="." method="_on_Player_tree_entered"]
+[connection signal="timeout" from="Color_Change_Timer" to="." method="_on_Color_Change_Timer_timeout"]
+[connection signal="timeout" from="Level_Timer/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="Level_Intro/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

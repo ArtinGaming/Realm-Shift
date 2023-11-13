@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/Tilesets/Decoration.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/Tilesets/World.tres" type="TileSet" id=2]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Music/machiavellian-nightmare-electronic-dystopia-ai-robot-machine-139385.mp3" type="AudioStream" id=5]
+[ext_resource path="res://scenes/Flying Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Ground Enemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Winzone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10.5, 104.25 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[node name="Level 02" type="Node2D"]
+script = ExtResource( 3 )
+time_limit = 50
+level_number = 3
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -320.0
+margin_top = -559.0
+margin_right = 2590.0
+margin_bottom = 682.0
+color = Color( 0.133333, 0.137255, 0.137255, 1 )
+
+[node name="World_Bordors" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World_Bordors"]
+position = Vector2( -9, 107.25 )
+shape = SubResource( 1 )
+
+[node name="Decoration" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131049, 5, 0, -65513, 5, 0, 23, 5, 0, 65559, 5, 0, 131095, 5, 0, 196626, 6, 0, 196627, -1610612731, 0, 196628, -1610612731, 0, 196629, -1610612731, 0, 196630, -1610612731, 0, 196631, 1610612742, 0, 262162, 5, 0, 262188, 18, 0, 262189, 18, 0, 262190, 18, 0, 262191, 18, 0, 327698, 5, 0, 327724, 18, 0, 327725, 18, 0, 327726, 18, 0, 327727, 18, 0, 393234, 5, 0, 393260, 18, 0, 393261, 18, 0, 393262, 18, 0, 393263, 18, 0, 458768, -1073741800, 0, 458769, -1073741800, 0, 458770, -1073741800, 0, 458771, -1073741800, 0, 458772, -1073741800, 0, 458773, -1073741800, 0, 458774, -1073741800, 0, 458776, -1073741800, 0, 458799, 1073741844, 0, 524335, 1073741844, 0, 589871, 1073741844, 0, 655391, 17, 0, 655407, 1073741844, 0, 720897, 22, 0, 720904, 2, 0, 720911, 0, 0, 720943, 1073741844, 0, 786433, 23, 0, 786437, 17, 0, 786440, 4, 0, 786447, 1, 0, 786448, 13, 0, 786453, 17, 0, 786470, 13, 0, 786479, 1073741844, 0, 786481, 22, 0, 786495, 22, 0, 851992, 14, 0, 851996, 14, 0, 852015, 1073741842, 0, 852017, 23, 0, 852031, 23, 0, 852034, 17, 0 )
+
+[node name="World" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 262165, 21, 0, 262166, 22, 0, 262167, 23, 0, 327701, 28, 0, 327702, 1073741831, 0, 327703, 24, 0, 393237, 23, 0, 393239, 24, 0, 458767, 21, 0, 458768, 22, 0, 458769, 22, 0, 458770, 22, 0, 458771, 22, 0, 458772, 22, 0, 458773, 22, 0, 458775, 24, 0, 524303, 29, 0, 524304, 27, 0, 524305, 27, 0, 524306, 27, 0, 524307, 27, 0, 524308, 27, 0, 524309, 27, 0, 524310, 27, 0, 524311, 25, 0, 720926, 12, 0, 720927, 13, 0, 720928, 14, 0, 851968, 0, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 3, 0, 851983, 0, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 3, 0, 852005, 12, 0, 852006, 13, 0, 852007, 14, 0, 852022, 12, 0, 852023, 13, 0, 852024, 13, 0, 852025, 14, 0, 917504, 4, 0, 917505, 1610612743, 0, 917511, 1073741831, 0, 917512, 5, 0, 917519, 4, 0, 917520, 1073741831, 0, 917525, 5, 0, 917528, 11, 0, 917532, 11, 0, 917548, 0, 0, 917549, 1, 0, 917550, 1, 0, 917551, 1, 0, 917552, 1, 0, 917553, 3, 0, 917566, 0, 0, 917567, 1, 0, 917568, 1, 0, 917569, 1, 0, 917570, 1, 0, 917571, 1, 0, 917572, 1, 0, 917573, 1, 0, 917574, 3, 0, 983040, 4, 0, 983043, 536870919, 0, 983048, 5, 0, 983055, 4, 0, 983061, 5, 0, 983084, 4, 0, 983085, 7, 0, 983089, 5, 0, 983102, 4, 0, 983107, 1610612743, 0, 983110, 5, 0, 1048576, 4, 0, 1048577, 7, 0, 1048583, 7, 0, 1048584, 5, 0, 1048591, 4, 0, 1048596, 7, 0, 1048597, 5, 0, 1048620, 4, 0, 1048625, 5, 0, 1048638, 4, 0, 1048639, 1073741831, 0, 1048646, 5, 0, 1114112, 8, 0, 1114113, 9, 0, 1114114, 9, 0, 1114115, 9, 0, 1114116, 9, 0, 1114117, 9, 0, 1114118, 9, 0, 1114119, 9, 0, 1114120, 10, 0, 1114127, 8, 0, 1114128, 9, 0, 1114129, 9, 0, 1114130, 9, 0, 1114131, 9, 0, 1114132, 9, 0, 1114133, 10, 0, 1114156, 4, 0, 1114159, 1073741831, 0, 1114161, 5, 0, 1114174, 4, 0, 1114180, 7, 0, 1114182, 5, 0, 1179692, 8, 0, 1179693, 9, 0, 1179694, 9, 0, 1179695, 9, 0, 1179696, 9, 0, 1179697, 10, 0, 1179710, 8, 0, 1179711, 9, 0, 1179712, 9, 0, 1179713, 9, 0, 1179714, 9, 0, 1179715, 9, 0, 1179716, 9, 0, 1179717, 9, 0, 1179718, 10, 0 )
+
+[node name="Winzone" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1116, 217 )
+next_level = "res://scenes/Level 03.tscn"
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 70, 180 )
+bar_increase = 0.15
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Flying Enemy" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 306, 179 )
+
+[node name="Flying Enemy2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 728, 180 )
+
+[node name="Ground Enemy" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 246, 193 )
+
+[node name="Ground Enemy2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 614, 180 )
+
+[node name="Ground Enemy4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 896, 192 )
+
+[node name="Ground Enemy3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 503, 156 )
+
+[node name="Music_BG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Flying_Enemy_Text" type="Label" parent="."]
+margin_left = 241.0
+margin_top = 152.0
+margin_right = 377.0
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 2 )
+text = "Jump On Their Heads To Kill Them"
+autowrap = true
+uppercase = true
